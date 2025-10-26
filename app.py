@@ -138,6 +138,16 @@ career_data = [
         "effectiveness": "HIGHLY EFFECTIVE - Excellent strategic thinking - shift from AI user to AI builder/controller. Strong recognition that developers who create AI remain competitive. Mature understanding that AI creates new opportunities while transforming old ones. Well-aligned with industry reality that prompt engineering and AI development are growing fields.",
         "considerations": "Focus on AI development skills (ML, deep learning, NLP); Learn prompt engineering and AI fine-tuning; Develop creative problem-solving abilities AI lacks; Build skills in system architecture and complex design; Understand AI limitations and edge cases; Stay current with rapidly evolving AI frameworks and tools; Develop domain expertise in specific industries; Focus on problems requiring human creativity and judgment",
         "projections": "FUTURE: AI-assisted coding (GitHub Copilot, etc.) becomes standard; Automated testing and debugging with AI; Natural language to code generation; AI-powered code review and optimization; Automated documentation generation; Low-code/no-code platforms with AI. FORMAL EDUCATION: Computer Science degrees with AI/ML specializations; Courses in machine learning, deep learning, NLP; Graduate programs in AI engineering; Certifications in cloud AI platforms (AWS, Azure, Google). INFORMAL EDUCATION: Master Python, TensorFlow, PyTorch; Learn prompt engineering techniques; Build AI/ML projects and contribute to open source; Practice on Kaggle and AI competition platforms; Stay current with latest AI models and frameworks; Join AI developer communities; Create portfolio of AI-integrated applications; Learn about AI ethics and responsible development."
+    },
+    {
+        "field": "Nanotechnologist/Physicist",
+        "student": "Warisha",
+        "category": "Science & Research",
+        "concerns": "Risk that AI could make certain research tasks obsolete; Concern about AI potentially harming employment chances in physics; Challenge of keeping up with rapidly advancing quantum physics field; Need to stay relevant as AI capabilities expand in scientific research",
+        "solutions": "Use AI to complete long, mundane research tasks quickly; Leverage AI to create programs for modeling inventions and complex subjects like human body; Use AI to process large amounts of experimental data, especially in optics research; Consider developing Quantum AI as potentially faster and more efficient form of AI; Use language learning models to explain, condense, and expand complex physics topics throughout education; View AI as supportive tool rather than threat to employment",
+        "effectiveness": "HIGHLY EFFECTIVE - Demonstrates exceptional forward-thinking approach by considering role in developing next-generation AI (Quantum AI) rather than just using existing AI. Strong understanding that AI handles computational and data processing tasks while human creativity drives innovation. Excellent recognition that AI supports education and research rather than replacing physicists. Mature perspective that AI is tool for enhancement, not threat. Very well-aligned with cutting-edge physics and nanotechnology research trends.",
+        "considerations": "Must develop strong computational physics and programming skills to effectively use AI modeling tools; Learn to critically evaluate AI-generated models and simulations; Build expertise in quantum computing and quantum information science; Understand limitations of current AI in handling quantum phenomena; Develop strong theoretical physics foundation that AI cannot replicate; Focus on creative hypothesis generation and experimental design that requires human insight; Stay current with quantum AI developments and potential applications; Build interdisciplinary skills combining physics, computer science, and engineering; Learn to use AI as research accelerator while maintaining scientific rigor and validation",
+        "projections": "FUTURE: AI-powered molecular dynamics simulations for nanomaterial design; Quantum machine learning algorithms for materials discovery; AI-assisted experimental design and optimization in nanotechnology; Automated data analysis for quantum optics experiments; AI-driven prediction of material properties at nanoscale; Quantum AI systems leveraging quantum computing for exponentially faster processing; AI-enhanced scientific literature review and knowledge synthesis; Machine learning for pattern recognition in complex quantum systems; Digital twins of nanostructures for testing before physical fabrication. FORMAL EDUCATION: Physics degree with emphasis on computational physics and quantum mechanics; Nanotechnology graduate programs incorporating AI and machine learning; Courses in quantum computing, quantum information theory, and quantum algorithms; Programming courses (Python, MATLAB, C++) for scientific computing; Machine learning and AI courses tailored for physical sciences; Specialized training in quantum AI development; Interdisciplinary programs combining physics, materials science, and computer science; Advanced courses in nanoscale characterization and modeling. INFORMAL EDUCATION: Learn scientific programming libraries (NumPy, SciPy, TensorFlow for physics); Practice with molecular modeling software (LAMMPS, GROMACS) enhanced by AI; Follow quantum computing developments (IBM Quantum, Google Quantum AI); Experiment with quantum programming frameworks (Qiskit, Cirq); Use AI tools for scientific literature review (Semantic Scholar, Connected Papers); Join physics and nanotechnology research communities online; Participate in quantum computing hackathons and competitions; Build projects combining physics simulations with machine learning; Attend conferences on quantum AI and computational physics; Collaborate on open-source scientific software projects; Practice using LLMs for learning complex physics concepts; Read research papers on quantum machine learning applications; Network with researchers in quantum AI field; Experiment with AI-assisted data visualization for complex datasets"
     }
 ]
 
@@ -155,13 +165,13 @@ st.markdown("""
 # Statistics
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-    st.metric("Career Fields", "11")
+    st.metric("Career Fields", "12")
 with col2:
-    st.metric("Student Responses", "12")
+    st.metric("Student Responses", "13")
 with col3:
     st.metric("Healthcare Fields", len(df[df['category'] == 'Healthcare']))
 with col4:
-    st.metric("Technology Fields", len(df[df['category'] == 'Technology']))
+    st.metric("Science & Research", len(df[df['category'] == 'Science & Research']))
 
 # Filters
 st.sidebar.header("Filters")
@@ -261,7 +271,6 @@ st.sidebar.download_button(
     mime="text/csv"
 )
 
-# Summary statistics
 st.markdown("---")
 st.subheader("📊 Summary Statistics")
 
@@ -284,11 +293,36 @@ with col2:
     eff_df = pd.DataFrame({'Effectiveness': effectiveness_levels})
     st.bar_chart(eff_df['Effectiveness'].value_counts())
 
+# Key insights section
+st.markdown("---")
+st.subheader("🔑 Key Insights Across All Fields")
+
+insights_col1, insights_col2 = st.columns(2)
+
+with insights_col1:
+    st.markdown("""
+    ### Common Themes:
+    - **AI as Enhancement Tool**: Most students recognize AI enhances rather than replaces human expertise
+    - **Continuous Learning**: All fields require ongoing education in AI tools and technologies
+    - **Human Skills Matter**: Empathy, creativity, and judgment remain irreplaceable differentiators
+    - **Proactive Adaptation**: Success requires embracing AI rather than resisting it
+    """)
+
+with insights_col2:
+    st.markdown("""
+    ### Emerging Opportunities:
+    - **Quantum AI Development**: Next frontier in physics and nanotechnology
+    - **AI-Assisted Healthcare**: Predictive analytics and personalized medicine
+    - **Cybersecurity AI**: Defense against AI-powered threats
+    - **Engineering Automation**: Smart systems and predictive maintenance
+    """)
+
 # Footer
 st.markdown("---")
 st.markdown("""
 <div style='text-align: center; color: #7f8c8d;'>
     <p>AI Future Career Analysis | Prepared for Educational Use</p>
-    <p>Data based on student responses about AI integration in their future careers</p>
+    <p>Data based on 13 student responses about AI integration in their future careers across 12 fields</p>
+    <p>Including: Healthcare, Technology, Engineering, Business & Science, and Research</p>
 </div>
 """, unsafe_allow_html=True)
